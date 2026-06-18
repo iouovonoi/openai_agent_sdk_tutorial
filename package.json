@@ -4,6 +4,8 @@
   "description": "OpenAI Agent SDK Tutorial",
   "type": "module",
   "scripts": {
+    "start": "node function_call.js",
+    "demo:youbike": "node function_call.js",
     "init:knowledge": "node scripts/init-knowledge.js",
     "search:knowledge": "node scripts/search-knowledge.js"
   },
@@ -13,6 +15,8 @@
   "dependencies": {
     "@qdrant/js-client-rest": "^1.18.0",
     "dotenv": "^17.4.2",
-    "openai": "^6.38.0"
+    "openai": "^6.38.0",
+    "ora": "^9.4.0",
+    "zod": "^4.4.3"
   }
 }

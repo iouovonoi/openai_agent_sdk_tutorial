@@ -2,11 +2,85 @@
  * @Author: ChiaEnKang
  * @Date: 2026-06-18 10:17:29
  * @LastEditors: ChiaEnKang
- * @LastEditTime: 2026-06-18 10:19:29
+ * @LastEditTime: 2026-06-18 16:35:09
 -->
 # OpenAI Agent SDK Tutorial
 
 A hands-on tutorial for building AI agents with the OpenAI Agent SDK.
+
+## 作業 4：整合 YouBike 與時間工具
+
+本作業參考老師提供的 Tool Calling 範例，整合「目前時間」與「YouBike 行政區查詢」兩個工具，建立一個可以回答台灣時間與台北市 YouBike 可借站點的助理。
+
+注意：YouBike 工具使用台北市開放資料，查詢時要輸入行政區名稱，例如 `大安區`、`信義區`，不要只輸入 `台北市`。
+
+### 檔案說明
+
+- `function_call.js`：主程式，註冊工具並執行三組測試對話
+- `tools/current_time.js`：取得目前台灣時間
+- `tools/youbike.js`：依台北市行政區查詢可租借的 YouBike 站點
+- `tools/index.js`：工具註冊匯出
+- `utils/func-tool.js`：將工具轉成 OpenAI Function Calling 格式
+- `utils/spinner.js`：命令列等待動畫
+
+### 執行方式
+
+```bash
+npm run demo:youbike
+```
+
+或直接執行：
+
+```bash
+node function_call.js
+```
+
+### 執行畫面截圖
+
+![YouBike 與時間工具 CMD 對話截圖](assets/ubike_screenshot.JPG)
+
+### 測試結果
+
+測試 1：
+
+```text
+現在幾點？
+```
+
+呼叫工具：
+
+```text
+[呼叫 tool] get_current_time({})
+```
+
+測試 2：
+
+```text
+信義區有 YouBike 可以借嗎？
+```
+
+呼叫工具：
+
+```text
+[呼叫 tool] get_youbike_by_area({"area":"信義區","available_amount":1,"limit":10})
+```
+
+測試 3：
+
+```text
+現在幾點？大安區還有 YouBike 可以借嗎？
+```
+
+呼叫工具：
+
+```text
+[呼叫 tool] get_current_time({})
+[呼叫 tool] get_youbike_by_area({"area":"大安區","available_amount":1,"limit":5})
+```
+
+### 結果說明
+
+三個測試問題都能正確觸發工具。單純詢問時間時會呼叫 `get_current_time`；詢問行政區 YouBike 時會呼叫 `get_youbike_by_area`；同時詢問時間與 YouBike 時，AI 會在同一輪對話中呼叫兩個工具。
 
 ## 作業 3：建立迷你知識庫
 
