@@ -1,0 +1,18 @@
+{
+  "name": "openai-agent-sdk-tutorial",
+  "version": "0.1.0",
+  "description": "OpenAI Agent SDK Tutorial",
+  "type": "module",
+  "scripts": {
+    "init:knowledge": "node scripts/init-knowledge.js",
+    "search:knowledge": "node scripts/search-knowledge.js"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "@qdrant/js-client-rest": "^1.18.0",
+    "dotenv": "^17.4.2",
+    "openai": "^6.38.0"
+  }
+}
