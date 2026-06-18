@@ -2,7 +2,7 @@
  * @Author: ChiaEnKang
  * @Date: 2026-06-18 10:17:29
  * @LastEditors: ChiaEnKang
- * @LastEditTime: 2026-06-18 10:19:29
+ * @LastEditTime: 2026-06-18 16:42:10
 -->
 # OpenAI Agent SDK Tutorial
 
@@ -41,6 +41,16 @@ npm run init:knowledge
 ```bash
 npm run search:knowledge
 ```
+
+### 執行畫面截圖
+
+Qdrant Cloud 已成功建立知識庫 points：
+
+![Qdrant Cloud 知識庫 Points 截圖](assets/qdrant_collection.JPG)
+
+CMD 搜尋測試結果：
+
+![知識庫搜尋測試 CMD 截圖](assets/search_smiliar_score.JPG)
 
 ### 測試結果
 
